@@ -74,29 +74,29 @@ RegisterNumber: 212222230058
 
 ## UP COUNTER:
 ```
-module upc(clk,A);
+module uc(clk,A);
 input clk;
-output reg[0:3]A;
+output reg [3:0]A;
 always@(posedge clk)
 begin
-		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-		A[1]=(((A[2])&(A[3]))^A[1]);
-		A[2]=((A[3])^A[2]);
-		A[3]=1^A[3];
+A[3]=((A[2]&A[1])&A[0])^A[3];
+A[2]=(A[1]&A[0])^A[2];
+A[1]=(A[0]^A[1]);
+A[0]=1^A[0];
 end
 endmodule
 ```
 ## DOWN COUNTER:
 ```
-module downc(clk,A);
+module dc(clk,A);
 input clk;
-output reg[0:3]A;
-always@(posedge clk)
+output reg [3:0]A;
+always @(posedge clk)
 begin
-	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
-	A[1]=(((~A[2])&(~A[3]))^A[1]);
-	A[2]=((~A[3])^A[2]);
-	A[3]=1^A[3];
+A[3]=((~A[2])&(~A[1])&(~A[0]))^A[3];
+A[2]=((~A[1])&(~A[0]))^A[2];
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
 end
 endmodule
 
@@ -109,12 +109,12 @@ endmodule
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 ## UP COUNTER:
-![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/a5acf247-568e-48a8-aa0a-80c4510e23f1)
+![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/0a4b5a96-c4d0-4a3d-a501-4d57d46f37b8)
+
 
 
 ## DOWN COUNTER:
-![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/f9fea8c9-c912-4990-afd9-44174c27490a)
-
+![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/692e0239-810e-40fe-85d4-8753d18abb66)
 
 
 
@@ -124,12 +124,12 @@ endmodule
 ### TIMING DIGRAMS FOR COUNTER  
 
 ## UP COUNTER:
-![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/a03749a6-5417-41a9-bc70-f00d87351ce6)
+![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/97556c87-e03f-4dc5-b1a5-e9c7cfe05365)
 
 
 
 ## DOWN COUNTER:
-![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/ee8b2dee-ed38-41c6-9814-d53869bc5b8c)
+![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/f4328c29-280a-4d61-a943-c65419b9530e)
 
 
 
@@ -138,7 +138,8 @@ endmodule
 ### TRUTH TABLE 
 
 ## UP COUNTER:
-![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/773b2f3c-decc-43ec-a096-01cc8dd12e40)
+![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/a1d25d20-5a5b-4b54-a8cc-031daeccf011)
+
 
 ## DOWN COUNTER:
 ![image](https://github.com/JoyceBeulah/Exp-7-Synchornous-counters-/assets/118343698/9603f86e-1f66-4b37-9b4f-70424423221a)
